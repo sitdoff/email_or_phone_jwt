@@ -32,6 +32,8 @@
 Так же возможен запуск с использование обычного сервера для разработки из Django. Перед этим необходимо отредактировать файл `.env` внеся в него необходимые данныу для подключения в базе данных и перенеся в директорию с файлом manage.py.
 
     gitclone
+    python us/manage.py makemigrations
+    python us/manage.py migrate
     python us/manage.py runserver
 
 # Описание эндпоинтов
@@ -92,11 +94,11 @@
 
 ## Получение JWT токенов
 
+`POST /api/auth/jwt/create/`
+
 | Method | Request               | Responce                                   |
 | ------ | --------------------- | ------------------------------------------ |
 | POST   | username</br>password | **HTTP_200_OK</br> HTTP_401_UNAUTHORIZED** |
-
-`POST /auth/jwt/create/`
 
 <details>
 <summary>Примеры запросов и ответов</summary>
@@ -145,11 +147,11 @@
 
 ## Обновление access токена
 
+`POST /api/auth/jwt/refresh/`
+
 | Method | Request       | Responce status code                       |
 | ------ | ------------- | ------------------------------------------ |
 | POST   | refresh_token | **HTTP_200_OK</br> HTTP_401_UNAUTHORIZED** |
-
-`POST /auth/jwt/refresh/`
 
 <details>
 <summary>Примеры запросов и ответов</summary>
@@ -178,7 +180,7 @@
 
 ## обнуление? refresh токена
 
-`POST /auth/logout/`
+`POST /api/auth/logout/`
 
 | Method | Request       | Responce        |
 | ------ | ------------- | --------------- |
