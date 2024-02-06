@@ -14,5 +14,6 @@ local_settings.py
 db.sqlite3
 .flake8
 .pylintrc
-.perttierrc.toml
-
+.prettierrc.toml
+bu_pyproject.toml
+note
